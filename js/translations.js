@@ -10,8 +10,8 @@ const translations = {
             contact: "Contact"
         },
         hero: {
-            subtitle: "Reaching for the Stratosphere",
-            description: "A CanSat project pushing the boundaries of atmospheric research and technology"
+            subtitle: "Technology that doesn’t fall blindly",
+            description: "Our mission is to increase the precision and safety of satellite descent through active parachute control"
         },
         quickLinks: {
             about: "About Project",
