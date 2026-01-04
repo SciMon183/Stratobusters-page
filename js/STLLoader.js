@@ -4,18 +4,25 @@
  */
 
 THREE.STLLoader = function ( manager ) {
-	THREE.Loader.call( this, manager );
+	this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
+	this.path = '';
+	this.requestHeader = {};
+	this.withCredentials = false;
 };
 
-THREE.STLLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype ), {
+THREE.STLLoader.prototype = {
 	constructor: THREE.STLLoader,
 	load: function ( url, onLoad, onProgress, onError ) {
 		const scope = this;
 		const loader = new THREE.FileLoader( scope.manager );
 		loader.setPath( scope.path );
 		loader.setResponseType( 'arraybuffer' );
-		loader.setRequestHeader( scope.requestHeader );
-		loader.setWithCredentials( scope.withCredentials );
+		if ( scope.requestHeader ) {
+			loader.setRequestHeader( scope.requestHeader );
+		}
+		if ( scope.withCredentials !== undefined ) {
+			loader.setWithCredentials( scope.withCredentials );
+		}
 		loader.load( url, function ( text ) {
 			try {
 				onLoad( scope.parse( text ) );
@@ -25,21 +32,54 @@ THREE.STLLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype
 				} else {
 					console.error( e );
 				}
-				scope.manager.itemError( url );
+				if ( scope.manager && scope.manager.itemError ) {
+					scope.manager.itemError( url );
+				}
 			}
 		}, onProgress, onError );
+	},
+	setPath: function ( value ) {
+		this.path = value;
+		return this;
+	},
+	setRequestHeader: function ( value ) {
+		this.requestHeader = value;
+		return this;
+	},
+	setWithCredentials: function ( value ) {
+		this.withCredentials = value;
+		return this;
 	},
 	parse: function ( data ) {
 		const binData = this.isBinary( data ) ? data : this.ensureBinary( data );
 		return this.isBinary( data ) ? this.parseBinary( binData ) : this.parseASCII( this.ensureString( data ) );
 	},
 	isBinary: function ( data ) {
-		const reader = new DataView( data );
-		const faces_size = reader.getUint32( 80, true );
-		const data_offset = 84;
-		const data_length = reader.byteLength;
-		const expected_length = data_offset + faces_size * 50;
-		return expected_length === data_length;
+		// Check if data is a string (ASCII STL)
+		if ( typeof data === 'string' ) {
+			return false;
+		}
+		
+		// Check if data is an ArrayBuffer
+		if ( !( data instanceof ArrayBuffer ) ) {
+			return false;
+		}
+		
+		// Check if we have enough data to read the header
+		if ( data.byteLength < 84 ) {
+			return false;
+		}
+		
+		try {
+			const reader = new DataView( data );
+			const faces_size = reader.getUint32( 80, true );
+			const data_offset = 84;
+			const data_length = reader.byteLength;
+			const expected_length = data_offset + faces_size * 50;
+			return expected_length === data_length;
+		} catch ( e ) {
+			return false;
+		}
 	},
 	ensureBinary: function ( buffer ) {
 		if ( typeof buffer === 'string' ) {
@@ -66,17 +106,18 @@ THREE.STLLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype
 	},
 	parseBinary: function ( data ) {
 		const reader = new DataView( data );
+		const dataArray = new Uint8Array( data );
 		const faces = reader.getUint32( 80, true );
 		let r, g, b, hasColors = false;
 		let defaultR, defaultG, defaultB, alpha;
 		for ( let index = 0; index < 80 - 10; index ++ ) {
-			const colorString = String.fromCharCode( data[ index ], data[ index + 1 ], data[ index + 2 ], data[ index + 3 ], data[ index + 4 ], data[ index + 5 ] );
+			const colorString = String.fromCharCode( dataArray[ index ], dataArray[ index + 1 ], dataArray[ index + 2 ], dataArray[ index + 3 ], dataArray[ index + 4 ], dataArray[ index + 5 ] );
 			if ( colorString.indexOf( 'COLOR' ) === 0 ) {
 				hasColors = true;
-				defaultR = data[ index + 6 ] / 255;
-				defaultG = data[ index + 7 ] / 255;
-				defaultB = data[ index + 8 ] / 255;
-				alpha = data[ index + 9 ] / 255;
+				defaultR = dataArray[ index + 6 ] / 255;
+				defaultG = dataArray[ index + 7 ] / 255;
+				defaultB = dataArray[ index + 8 ] / 255;
+				alpha = dataArray[ index + 9 ] / 255;
 			}
 		}
 		const dataOffset = 84;
@@ -151,4 +192,4 @@ THREE.STLLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype
 		geometry.setAttribute( 'normal', new THREE.Float32BufferAttribute( normals, 3 ) );
 		return geometry;
 	}
-} );
+};

@@ -1,20 +1,27 @@
 /**
  * Simplified PLYLoader for Three.js
- * Supports colored PLY/PTR files
+ * Supports colored PLY/PRT files
  */
 THREE.PLYLoader = function ( manager ) {
-	THREE.Loader.call( this, manager );
+	this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
+	this.path = '';
+	this.requestHeader = {};
+	this.withCredentials = false;
 };
 
-THREE.PLYLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype ), {
+THREE.PLYLoader.prototype = {
 	constructor: THREE.PLYLoader,
 	load: function ( url, onLoad, onProgress, onError ) {
 		const scope = this;
 		const loader = new THREE.FileLoader( scope.manager );
 		loader.setPath( scope.path );
 		loader.setResponseType( 'text' );
-		loader.setRequestHeader( scope.requestHeader );
-		loader.setWithCredentials( scope.withCredentials );
+		if ( scope.requestHeader ) {
+			loader.setRequestHeader( scope.requestHeader );
+		}
+		if ( scope.withCredentials !== undefined ) {
+			loader.setWithCredentials( scope.withCredentials );
+		}
 		loader.load( url, function ( text ) {
 			try {
 				onLoad( scope.parse( text ) );
@@ -24,9 +31,23 @@ THREE.PLYLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype
 				} else {
 					console.error( e );
 				}
-				scope.manager.itemError( url );
+				if ( scope.manager && scope.manager.itemError ) {
+					scope.manager.itemError( url );
+				}
 			}
 		}, onProgress, onError );
+	},
+	setPath: function ( value ) {
+		this.path = value;
+		return this;
+	},
+	setRequestHeader: function ( value ) {
+		this.requestHeader = value;
+		return this;
+	},
+	setWithCredentials: function ( value ) {
+		this.withCredentials = value;
+		return this;
 	},
 	parse: function ( text ) {
 		function parseHeader( text ) {
@@ -123,4 +144,4 @@ THREE.PLYLoader.prototype = Object.assign( Object.create( THREE.Loader.prototype
 		}
 		return geometry;
 	}
-} );
+};

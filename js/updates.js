@@ -44,19 +44,43 @@
             return;
         }
 
-        updatesContainer.innerHTML = updates.map(update => `
-            <article class="update-card">
-                <div class="update-header">
-                    <div>
-                        <h2 class="update-title">${escapeHtml(update.title)}</h2>
-                        <div class="update-date">${formatDate(update.date)}</div>
+        updatesContainer.innerHTML = updates.map(update => {
+            let imageHtml = '';
+            if (update.image) {
+                imageHtml = `
+                    <div class="update-image">
+                        <img src="${update.image}" alt="${escapeHtml(update.title)}" loading="lazy">
                     </div>
-                </div>
-                <div class="update-content">
-                    ${update.content}
-                </div>
-            </article>
-        `).join('');
+                `;
+            } else if (update.images && update.images.length > 0) {
+                // Support multiple images
+                imageHtml = `
+                    <div class="update-images">
+                        ${update.images.map(img => `
+                            <div class="update-image">
+                                <img src="${img.src || img}" alt="${escapeHtml(img.alt || update.title)}" loading="lazy">
+                                ${img.caption ? `<p class="image-caption">${escapeHtml(img.caption)}</p>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            return `
+                <article class="update-card">
+                    <div class="update-header">
+                        <div>
+                            <h2 class="update-title">${escapeHtml(update.title)}</h2>
+                            <div class="update-date">${formatDate(update.date)}</div>
+                        </div>
+                    </div>
+                    ${imageHtml}
+                    <div class="update-content">
+                        ${update.content}
+                    </div>
+                </article>
+            `;
+        }).join('');
     }
 
     function formatDate(dateString) {

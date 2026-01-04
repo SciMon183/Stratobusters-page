@@ -8,11 +8,13 @@
 - **Best for**: Simple geometry display
 - **Usage**: Works out of the box
 
-### PTR/PLY (Polygon File Format)
-- **File**: `satellite.ptr` or `satellite.ply`
+### PRT/PLY (Polygon File Format)
+- **File**: `satellite.prt` or `satellite.ply`
 - **Features**: Supports vertex colors! 🎨
 - **Best for**: Colored models
-- **Usage**: The website will automatically use colors from the PTR file
+- **Usage**: The website will automatically use colors from the PLY file
+- **⚠️ Important**: SolidWorks PRT files need to be exported to PLY format first!
+- **See**: `EXPORT_INSTRUCTIONS.md` for how to export from SolidWorks with colors
 
 ### STP (STEP)
 - **File**: `satellite.stp`

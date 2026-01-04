@@ -503,6 +503,45 @@ body {
     color: var(--text-secondary);
 }
 
+.update-image {
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.update-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.update-image:hover img {
+    transform: scale(1.02);
+}
+
+.update-image .image-caption {
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+.update-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.update-images .update-image {
+    margin: 0;
+}
+
 /* Gallery */
 .gallery-grid {
     display: grid;
