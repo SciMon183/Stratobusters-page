@@ -2,10 +2,22 @@
   "members": [
     {
       "name": "Filip Szymaszek",
-      "role": "Project Lead",
+      "role": "Lider Projektu",
       "image": "images/team/pyndzel.jpg",
-      "bio": "fjnh sdjlkfhf sjdklhfjsdl kahflkjsadhflk jdshdsalkjh kjh kjlfdhlkj hsdafkj hfkjl hfkj hfkj hlkjf hfkh "
+      "bio": "Zarządza projektem, jest opowiedzialny za mechaniczną budowę CanSata."
     }, 
+    {
+      "name": "Szymon Jagiełło",
+      "role": "Programista",
+      "image": "images/team/jagiello.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
+    },
+    {
+      "name": "Kamil Lauzer",
+      "role": "Programista",
+      "image": "images/team/lasar.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
+    },
     {
       "name": "Krzysztof Kucharski",
       "role": "Hardware Engineer",
@@ -13,20 +25,8 @@
       "bio": "Designing and building the  fsd fdsf dsf dsf dsd dsf  dsf f df sd sd dfsdsfdsfds fsd dfCanSat hardware systems."
     },
     {
-      "name": "Szymon Jagiełło",
-      "role": "Software Developer",
-      "image": "images/team/jagiello.jpg",
-      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
-    },
-    {
-      "name": "Kamil Lauzer",
-      "role": "Software Developer",
-      "image": "images/team/lasar.jpg",
-      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
-    },
-    {
       "name": "Dominik Droździak",
-      "role": "Software Developer",
+      "role": "Elektronik",
       "image": "images/team/maruda.jpg",
       "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
     },
