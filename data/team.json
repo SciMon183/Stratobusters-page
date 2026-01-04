@@ -1,22 +1,40 @@
 {
   "members": [
     {
-      "name": "Team Member 1",
+      "name": "Filip Szymaszek",
       "role": "Project Lead",
-      "image": "images/team/member1.jpg",
-      "bio": "Leading the StratoBusters project with a passion for space technology."
-    },
+      "image": "images/team/pyndzel.jpg",
+      "bio": "fjnh sdjlkfhf sjdklhfjsdl kahflkjsadhflk jdshdsalkjh kjh kjlfdhlkj hsdafkj hfkjl hfkj hfkj hlkjf hfkh "
+    }, 
     {
-      "name": "Team Member 2",
+      "name": "Krzysztof Kucharski",
       "role": "Hardware Engineer",
-      "image": "images/team/member2.jpg",
-      "bio": "Designing and building the CanSat hardware systems."
+      "image": "images/team/maruda.jpg",
+      "bio": "Designing and building the  fsd fdsf dsf dsf dsd dsf  dsf f df sd sd dfsdsfdsfds fsd dfCanSat hardware systems."
     },
     {
-      "name": "Team Member 3",
+      "name": "Szymon Jagiełło",
       "role": "Software Developer",
-      "image": "images/team/member3.jpg",
-      "bio": "Developing the software and data collection systems."
+      "image": "images/team/jagiello.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
+    },
+    {
+      "name": "Kamil Lauzer",
+      "role": "Software Developer",
+      "image": "images/team/lasar.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
+    },
+    {
+      "name": "Dominik Droździak",
+      "role": "Software Developer",
+      "image": "images/team/maruda.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
+    },
+    {
+      "name": "Ignacy Wójcik",
+      "role": "Software Developer",
+      "image": "images/team/pyndzel.jpg",
+      "bio": "dasd d as asd asd asd sad sa sa saasdasd dasdas d das sadDeveloping the software and data collection systems."
     }
   ]
 }
