@@ -1,6 +1,13 @@
 // Updates/Blog Management - Loads from blog folder
 (function() {
     const updatesContainer = document.getElementById('updatesContainer');
+    
+    function getTranslation(key) {
+        if (typeof LanguageManager !== 'undefined') {
+            return LanguageManager.get(key);
+        }
+        return key;
+    }
 
     async function loadUpdates() {
         try {
@@ -35,21 +42,50 @@
         // For now, we'll use the manifest approach
         renderUpdates([]);
     }
+    
+    function getUpdateContent(update) {
+        if (typeof LanguageManager === 'undefined') return update.content;
+        const lang = LanguageManager.currentLang;
+        
+        // Support bilingual content: content_en, content_pl, or just content
+        if (lang === 'pl' && update.content_pl) {
+            return update.content_pl;
+        } else if (lang === 'en' && update.content_en) {
+            return update.content_en;
+        }
+        return update.content || '';
+    }
+    
+    function getUpdateTitle(update) {
+        if (typeof LanguageManager === 'undefined') return update.title;
+        const lang = LanguageManager.currentLang;
+        
+        // Support bilingual titles: title_en, title_pl, or just title
+        if (lang === 'pl' && update.title_pl) {
+            return update.title_pl;
+        } else if (lang === 'en' && update.title_en) {
+            return update.title_en;
+        }
+        return update.title || '';
+    }
 
     function renderUpdates(updates) {
         if (!updatesContainer) return;
 
         if (updates.length === 0) {
-            updatesContainer.innerHTML = '<div class="loading">No updates yet. Add update files to the blog/ folder.</div>';
+            updatesContainer.innerHTML = `<div class="loading">${getTranslation('updates.noUpdates')}</div>`;
             return;
         }
 
         updatesContainer.innerHTML = updates.map(update => {
             let imageHtml = '';
+            const title = getUpdateTitle(update);
+            const content = getUpdateContent(update);
+            
             if (update.image) {
                 imageHtml = `
                     <div class="update-image">
-                        <img src="${update.image}" alt="${escapeHtml(update.title)}" loading="lazy">
+                        <img src="${update.image}" alt="${escapeHtml(title)}" loading="lazy">
                     </div>
                 `;
             } else if (update.images && update.images.length > 0) {
@@ -58,7 +94,7 @@
                     <div class="update-images">
                         ${update.images.map(img => `
                             <div class="update-image">
-                                <img src="${img.src || img}" alt="${escapeHtml(img.alt || update.title)}" loading="lazy">
+                                <img src="${img.src || img}" alt="${escapeHtml(img.alt || title)}" loading="lazy">
                                 ${img.caption ? `<p class="image-caption">${escapeHtml(img.caption)}</p>` : ''}
                             </div>
                         `).join('')}
@@ -70,13 +106,13 @@
                 <article class="update-card">
                     <div class="update-header">
                         <div>
-                            <h2 class="update-title">${escapeHtml(update.title)}</h2>
+                            <h2 class="update-title">${escapeHtml(title)}</h2>
                             <div class="update-date">${formatDate(update.date)}</div>
                         </div>
                     </div>
                     ${imageHtml}
                     <div class="update-content">
-                        ${update.content}
+                        ${content}
                     </div>
                 </article>
             `;
@@ -85,7 +121,9 @@
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', { 
+        const lang = (typeof LanguageManager !== 'undefined') ? LanguageManager.currentLang : 'en';
+        const locale = lang === 'pl' ? 'pl-PL' : 'en-US';
+        return date.toLocaleDateString(locale, { 
             year: 'numeric', 
             month: 'long', 
             day: 'numeric' 
@@ -100,6 +138,15 @@
 
     // Load updates on page load
     if (updatesContainer) {
+        // Show loading message
+        updatesContainer.innerHTML = `<div class="loading">${getTranslation('updates.loading')}</div>`;
         loadUpdates();
     }
+    
+    // Reload updates when language changes
+    document.addEventListener('languageChanged', () => {
+        if (updatesContainer) {
+            loadUpdates();
+        }
+    });
 })();

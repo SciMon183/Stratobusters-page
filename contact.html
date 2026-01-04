@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - StratoBusters</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>StratoBusters</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-translate-nav="home">Strona główna</a></li>
+                <li><a href="about.html" data-translate-nav="about">O projekcie</a></li>
+                <li><a href="team.html" data-translate-nav="team">Drużyna</a></li>
+                <li><a href="updates.html" data-translate-nav="updates">Nowości</a></li>
+                <li><a href="gallery.html" data-translate-nav="gallery">Galeria</a></li>
+                <li><a href="contact.html" class="active" data-translate-nav="contact">Kontakt</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="languageSelect" class="language-select" aria-label="Select language">
+                    <option value="pl">🇵🇱 PL</option>
+                    <option value="en">🇬🇧 EN</option>
+                </select>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-translate="contact.title">Kontakt</h1>
+                <p class="page-subtitle" data-translate="contact.subtitle">Skontaktuj się z nami</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h2 data-translate="contact.infoTitle">Informacje kontaktowe</h2>
+                            <p data-translate="contact.infoText">
+                                Masz pytania? Chcesz dowiedzieć się więcej o naszym projekcie? 
+                                Skontaktuj się z nami poprzez email, telefon lub media społecznościowe.
+                            </p>
+
+                            <div class="contact-methods">
+                                <div class="contact-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-details">
+                                        <h3 data-translate="contact.emailTitle">Email</h3>
+                                        <a href="mailto:szymonj183@gmail.com">szymonj183@gmail.com</a>
+                                        <a href="mailto:stratobusters@gmail.com">stratobusters@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">📱</div>
+                                    <div class="contact-details">
+                                        <h3 data-translate="contact.phoneTitle">Telefon</h3>
+                                        <a href="tel:+48123456789">+48 123 456 789</a>
+                                        <a href="tel:+48987654321">+48 987 654 321</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">🌐</div>
+                                    <div class="contact-details">
+                                        <h3 data-translate="contact.socialTitle">Media społecznościowe</h3>
+                                        <div class="social-links">
+                                            <a href="https://github.com/SciMon183" target="_blank" rel="noopener noreferrer" class="social-link">
+                                                <span>🔗</span> GitHub
+                                            </a>
+                                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                                                <span>📘</span> Facebook
+                                            </a>
+                                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                                                <span>📷</span> Instagram
+                                            </a>
+                                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+                                                <span>💼</span> LinkedIn
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <span data-translate="footer.copyright">© 2025/2026 StratoBusters. Strona zaprojektowana przez</span>
+                <a href="https://github.com/SciMon183" data-translate="footer.designedBy">Szymona Jagiełło</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>

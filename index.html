@@ -13,15 +13,22 @@
                 <h1>StratoBusters</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Project</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="updates.html">Updates</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html" class="active" data-translate-nav="home">Strona główna</a></li>
+                <li><a href="about.html" data-translate-nav="about">O projekcie</a></li>
+                <li><a href="team.html" data-translate-nav="team">Drużyna</a></li>
+                <li><a href="updates.html" data-translate-nav="updates">Nowości</a></li>
+                <li><a href="gallery.html" data-translate-nav="gallery">Galeria</a></li>
+                <li><a href="contact.html" data-translate-nav="contact">Kontakt</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="theme-icon">🌙</span>
-            </button>
+            <div class="nav-controls">
+                <select id="languageSelect" class="language-select" aria-label="Select language">
+                    <option value="pl">🇵🇱 PL</option>
+                    <option value="en">🇬🇧 EN</option>
+                </select>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -34,21 +41,21 @@
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">StratoBusters</h1>
-                <p class="hero-subtitle">Reaching for the Stratosphere</p>
-                <p class="hero-description">A CanSat project pushing the boundaries of atmospheric research and technology</p>
+                <p class="hero-subtitle" data-translate="hero.subtitle">Technologia, która nie spada na ślepo</p>
+                <p class="hero-description" data-translate="hero.description">Naszą misją jest zwiększenie precyzji i bezpieczeństwa opadania satelitów poprzez aktywne sterowanie spadochronem</p>
             </div>
             <div class="hero-3d">
                 <div id="satellite-container">
                     <div class="model-controls">
-                        <button id="resetView" title="Reset View">↻ Reset</button>
+                        <button id="resetView" title="Reset View" data-translate="model.reset">↻ Reset</button>
                     </div>
                     <canvas id="satellite-canvas"></canvas>
                     <div class="loading-spinner" id="loadingSpinner">
                         <div class="spinner"></div>
-                        <p>Loading 3D Model...</p>
+                        <p data-translate="model.loading">Loading 3D Model...</p>
                     </div>
                     <div class="model-hints">
-                        <p>🖱️ Drag to rotate • Scroll to zoom</p>
+                        <p data-translate="model.dragHint">🖱️ Drag to rotate • Scroll to zoom</p>
                     </div>
                 </div>
             </div>
@@ -59,23 +66,23 @@
                 <div class="link-cards">
                     <a href="about.html" class="link-card">
                         <div class="card-icon">🚀</div>
-                        <h3>About Project</h3>
-                        <p>Learn about our CanSat mission and objectives</p>
+                        <h3 data-translate-quick="title.about">O projekcie</h3>
+                        <p data-translate-quick="desc.about">Dowiedz się więcej o naszym projekcie. Misja główna i poboczna oraz nasze cele.</p>
                     </a>
                     <a href="team.html" class="link-card">
                         <div class="card-icon">👥</div>
-                        <h3>Our Team</h3>
-                        <p>Meet the people behind StratoBusters</p>
+                        <h3 data-translate-quick="title.team">Drużyna</h3>
+                        <p data-translate-quick="desc.team">Poznaj ludzi, którzy tworzą StratoBusters</p>
                     </a>
                     <a href="updates.html" class="link-card">
                         <div class="card-icon">📰</div>
-                        <h3>Latest Updates</h3>
-                        <p>Stay updated with our progress</p>
+                        <h3 data-translate-quick="title.updates">Nowości</h3>
+                        <p data-translate-quick="desc.updates">Bądź na bieżąco z naszymi postępami</p>
                     </a>
                     <a href="gallery.html" class="link-card">
                         <div class="card-icon">📸</div>
-                        <h3>Gallery</h3>
-                        <p>View our project photos and milestones</p>
+                        <h3 data-translate-quick="title.gallery">Galeria</h3>
+                        <p data-translate-quick="desc.gallery">Zobacz zdjęcia naszego projektu</p>
                     </a>
                 </div>
             </div>
@@ -84,7 +91,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 StratoBusters. All rights reserved.</p>
+            <p>
+                <span data-translate="footer.copyright">© 2025/2026 StratoBusters. Strona zaprojektowana przez</span>
+                <a href="https://github.com/SciMon183" data-translate="footer.designedBy">Szymona Jagiełło</a>.
+            </p>
         </div>
     </footer>
 
@@ -92,8 +102,10 @@
     <script src="js/SimpleOrbitControls.js"></script>
     <script src="js/STLLoader.js"></script>
     <script src="js/PLYLoader.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/satellite-3d.js"></script>
+    <script src="js/language.js"></script>
 </body>
 </html>
