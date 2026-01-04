@@ -66,11 +66,27 @@ body {
     align-items: center;
 }
 
-.logo h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-primary);
-    letter-spacing: -0.5px;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.logo-img:hover {
+    opacity: 0.8;
 }
 
 .nav-menu {
@@ -873,6 +889,11 @@ footer a:hover {
         width: 36px;
         height: 36px;
         font-size: 1rem;
+    }
+    
+    .logo-img {
+        height: 32px;
+        max-width: 150px;
     }
 
     .hero-title {
