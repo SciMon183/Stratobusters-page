@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - StratoBusters</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>StratoBusters</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Project</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Gallery</h1>
+                <p class="page-subtitle">Project Photos and Milestones</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Images will be loaded dynamically from gallery folder -->
+                    <div class="loading">Loading gallery...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev">&#8249;</button>
+        <button class="lightbox-next" id="lightboxNext">&#8250;</button>
+        <img src="" alt="" id="lightboxImage">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 StratoBusters. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

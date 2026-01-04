@@ -1,0 +1,14 @@
+{
+  "updates": [
+    {
+      "title": "Welcome to StratoBusters!",
+      "date": "2024-01-15",
+      "content": "<p>We are excited to announce the launch of our CanSat project website. This marks the beginning of an incredible journey into the stratosphere.</p><h3>What's Next?</h3><p>Our team is working hard on the initial design phase, and we'll be sharing regular updates about our progress. Stay tuned!</p>"
+    },
+    {
+      "title": "Project Kickoff",
+      "date": "2024-01-10",
+      "content": "<p>The StratoBusters team has officially started the CanSat project. We've completed our initial planning and are ready to begin development.</p><h3>Initial Goals</h3><ul><li>Design the satellite structure</li><li>Select and integrate sensors</li><li>Develop communication systems</li><li>Plan the launch mission</li></ul>"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StratoBusters - CanSat Project</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>StratoBusters</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Project</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">StratoBusters</h1>
+                <p class="hero-subtitle">Reaching for the Stratosphere</p>
+                <p class="hero-description">A CanSat project pushing the boundaries of atmospheric research and technology</p>
+            </div>
+            <div class="hero-3d">
+                <div id="satellite-container">
+                    <canvas id="satellite-canvas"></canvas>
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p>Loading 3D Model...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <div class="container">
+                <div class="link-cards">
+                    <a href="about.html" class="link-card">
+                        <div class="card-icon">🚀</div>
+                        <h3>About Project</h3>
+                        <p>Learn about our CanSat mission and objectives</p>
+                    </a>
+                    <a href="team.html" class="link-card">
+                        <div class="card-icon">👥</div>
+                        <h3>Our Team</h3>
+                        <p>Meet the people behind StratoBusters</p>
+                    </a>
+                    <a href="updates.html" class="link-card">
+                        <div class="card-icon">📰</div>
+                        <h3>Latest Updates</h3>
+                        <p>Stay updated with our progress</p>
+                    </a>
+                    <a href="gallery.html" class="link-card">
+                        <div class="card-icon">📸</div>
+                        <h3>Gallery</h3>
+                        <p>View our project photos and milestones</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 StratoBusters. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/loaders/STLLoader.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/satellite-3d.js"></script>
+</body>
+</html>

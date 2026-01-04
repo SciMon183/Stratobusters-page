@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "name": "Team Member 1",
+      "role": "Project Lead",
+      "image": "images/team/member1.jpg",
+      "bio": "Leading the StratoBusters project with a passion for space technology."
+    },
+    {
+      "name": "Team Member 2",
+      "role": "Hardware Engineer",
+      "image": "images/team/member2.jpg",
+      "bio": "Designing and building the CanSat hardware systems."
+    },
+    {
+      "name": "Team Member 3",
+      "role": "Software Developer",
+      "image": "images/team/member3.jpg",
+      "bio": "Developing the software and data collection systems."
+    }
+  ]
+}

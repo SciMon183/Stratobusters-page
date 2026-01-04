@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "src": "gallery/placeholder1.jpg",
+      "caption": "Project Development"
+    },
+    {
+      "src": "gallery/placeholder2.jpg",
+      "caption": "Team Working"
+    },
+    {
+      "src": "gallery/placeholder3.jpg",
+      "caption": "CanSat Assembly"
+    }
+  ]
+}
