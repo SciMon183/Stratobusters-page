@@ -56,15 +56,30 @@
             const name = getTeamText(member, 'name');
             const role = getTeamText(member, 'role');
             const bio = getTeamText(member, 'bio');
+            const link = member.link || '';
             
-            return `
-            <div class="team-member">
+            const memberContent = `
                 <img src="${member.image || 'images/team/placeholder.jpg'}" alt="${escapeHtml(name)}" onerror="this.src='images/team/placeholder.jpg'">
                 <h3>${escapeHtml(name)}</h3>
                 <div class="role">${escapeHtml(role || getTranslation('team.member'))}</div>
                 ${bio ? `<p class="bio">${escapeHtml(bio)}</p>` : ''}
-            </div>
             `;
+            
+            if (link) {
+                return `
+                <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="team-member-link">
+                    <div class="team-member">
+                        ${memberContent}
+                    </div>
+                </a>
+                `;
+            } else {
+                return `
+                <div class="team-member">
+                    ${memberContent}
+                </div>
+                `;
+            }
         }).join('');
     }
 
