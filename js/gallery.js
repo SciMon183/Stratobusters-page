@@ -3,12 +3,32 @@
     const galleryGrid = document.getElementById('galleryGrid');
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
 
     let currentImages = [];
     let currentImageIndex = 0;
+    
+    function getGalleryCaption(image) {
+        if (typeof LanguageManager === 'undefined') return image.caption || '';
+        const lang = LanguageManager.currentLang;
+        
+        // Support bilingual fields: caption_en, caption_pl
+        if (lang === 'pl' && image.caption_pl) {
+            return image.caption_pl;
+        } else if (lang === 'en' && image.caption_en) {
+            return image.caption_en;
+        }
+        return image.caption || '';
+    }
+    
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 
     // Load images from gallery folder
     async function loadGallery() {
@@ -44,12 +64,15 @@
             return;
         }
 
-        galleryGrid.innerHTML = currentImages.map((image, index) => `
+        galleryGrid.innerHTML = currentImages.map((image, index) => {
+            const caption = getGalleryCaption(image);
+            return `
             <div class="gallery-item" data-index="${index}">
-                <img src="${image.src}" alt="${image.caption || 'Gallery image'}" loading="lazy">
-                ${image.caption ? `<div class="image-caption">${image.caption}</div>` : ''}
+                <img src="${image.src}" alt="${escapeHtml(caption) || 'Gallery image'}" loading="lazy">
+                ${caption ? `<div class="image-caption">${escapeHtml(caption)}</div>` : ''}
             </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Add click handlers
         const items = galleryGrid.querySelectorAll('.gallery-item');
@@ -60,8 +83,13 @@
 
     function openLightbox(index) {
         currentImageIndex = index;
-        lightboxImage.src = currentImages[index].src;
-        lightboxImage.alt = currentImages[index].caption || 'Gallery image';
+        const image = currentImages[index];
+        const caption = getGalleryCaption(image);
+        lightboxImage.src = image.src;
+        lightboxImage.alt = escapeHtml(caption) || 'Gallery image';
+        if (lightboxCaption) {
+            lightboxCaption.textContent = caption || '';
+        }
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -73,14 +101,24 @@
 
     function showNextImage() {
         currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-        lightboxImage.src = currentImages[currentImageIndex].src;
-        lightboxImage.alt = currentImages[currentImageIndex].caption || 'Gallery image';
+        const image = currentImages[currentImageIndex];
+        const caption = getGalleryCaption(image);
+        lightboxImage.src = image.src;
+        lightboxImage.alt = escapeHtml(caption) || 'Gallery image';
+        if (lightboxCaption) {
+            lightboxCaption.textContent = caption || '';
+        }
     }
 
     function showPrevImage() {
         currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-        lightboxImage.src = currentImages[currentImageIndex].src;
-        lightboxImage.alt = currentImages[currentImageIndex].caption || 'Gallery image';
+        const image = currentImages[currentImageIndex];
+        const caption = getGalleryCaption(image);
+        lightboxImage.src = image.src;
+        lightboxImage.alt = escapeHtml(caption) || 'Gallery image';
+        if (lightboxCaption) {
+            lightboxCaption.textContent = caption || '';
+        }
     }
 
     // Event listeners
@@ -121,4 +159,20 @@
     if (galleryGrid) {
         loadGallery();
     }
+    
+    // Reload gallery when language changes
+    document.addEventListener('languageChanged', () => {
+        if (galleryGrid) {
+            renderGallery();
+            // Update lightbox caption if it's open
+            if (lightbox && lightbox.classList.contains('active')) {
+                const image = currentImages[currentImageIndex];
+                const caption = getGalleryCaption(image);
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = caption || '';
+                }
+                lightboxImage.alt = escapeHtml(caption) || 'Gallery image';
+            }
+        }
+    });
 })();

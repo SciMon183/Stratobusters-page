@@ -1,16 +1,34 @@
 {
   "images": [
     {
-      "src": "gallery/placeholder1.jpg",
-      "caption": "Project Development"
+      "src": "gallery/ph1.jpg",
+      "caption": "Dron z zasobnikiem",
+      "caption_en": "Drone with container",
+      "caption_pl": "Dron z zasobnikiem"
     },
     {
-      "src": "gallery/placeholder2.jpg",
-      "caption": "Team Working"
+      "src": "gallery/ph2.jpg",
+      "caption": "Dron z zasobnikiem",
+      "caption_en": "Drone with container",
+      "caption_pl": "Dron z zasobnikiem"
     },
     {
-      "src": "gallery/placeholder3.jpg",
-      "caption": "CanSat Assembly"
+      "src": "gallery/ph3.jpg",
+      "caption": "Frezowanie części",
+      "caption_en": "Milling parts",
+      "caption_pl": "Frezowanie części"
+    },
+    {
+      "src": "gallery/ph4.jpg",
+      "caption": "Wydrukowana część nylonowa",
+      "caption_en": "3D printed nylon part",
+      "caption_pl": "Wydrukowana część nylonowa"
+    },
+    {
+      "src": "gallery/ph5.jpg",
+      "caption": "Pyndzel testuje spadochron",
+      "caption_en": "Pyndzel testing parachute",
+      "caption_pl": "Pyndzel testuje spadochron"
     }
   ]
 }
