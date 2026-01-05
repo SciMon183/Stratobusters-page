@@ -335,6 +335,96 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* Sponsors */
+.sponsors {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+}
+
+.sponsors-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 3rem;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sponsor-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 200px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow);
+    color: var(--text-primary);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover);
+    border-color: var(--accent-primary);
+}
+
+.sponsor-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.sponsor-logo {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.sponsor-placeholder {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sponsor-name {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    transition: color 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-name {
+    color: var(--accent-primary);
+}
+
 /* Quick Links */
 .quick-links {
     padding: 4rem 0;
@@ -949,6 +1039,28 @@ footer a:hover {
 
     .page-header h1 {
         font-size: 2rem;
+    }
+    
+    .sponsors-title {
+        font-size: 2rem;
+    }
+    
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .sponsor-card {
+        min-height: 180px;
+        padding: 1.5rem;
+    }
+    
+    .sponsor-logo {
+        max-height: 100px;
+    }
+    
+    .sponsor-name {
+        font-size: 1rem;
     }
 
     .link-cards {

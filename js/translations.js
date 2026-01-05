@@ -56,6 +56,9 @@ const translations = {
             title: "Gallery",
             subtitle: "Project Photos and Milestones"
         },
+        sponsors: {
+            title: "Our Sponsors"
+        },
         contact: {
             title: "Contact",
             subtitle: "Get in Touch",
@@ -130,6 +133,9 @@ const translations = {
         gallery: {
             title: "Galeria",
             subtitle: "Zdjęcia projektu i kamienie milowe"
+        },
+        sponsors: {
+            title: "Nasi Sponsorzy"
         },
         contact: {
             title: "Kontakt",

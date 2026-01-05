@@ -2,26 +2,42 @@
   "updates": [
     {
       "title": "Welcome to StratoBusters!",
+      "title_en": "Welcome to StratoBusters!",
+      "title_pl": "Witamy w StratoBusters!",
       "date": "2024-01-15",
       "image": "blog/images/welcome.jpg",
-      "content": "<p>We are excited to announce the launch of our CanSat project website. This marks the beginning of an incredible journey into the stratosphere.</p><h3>What's Next?</h3><p>Our team is working hard on the initial design phase, and we'll be sharing regular updates about our progress. Stay tuned!</p>"
+      "content": "<p>We are excited to announce the launch of our CanSat project website. This marks the beginning of an incredible journey into the stratosphere.</p><h3>What's Next?</h3><p>Our team is working hard on the initial design phase, and we'll be sharing regular updates about our progress. Stay tuned!</p>",
+      "content_en": "<p>We are excited to announce the launch of our CanSat project website. This marks the beginning of an incredible journey into the stratosphere.</p><h3>What's Next?</h3><p>Our team is working hard on the initial design phase, and we'll be sharing regular updates about our progress. Stay tuned!</p>",
+      "content_pl": "<p>Z radością ogłaszamy uruchomienie strony internetowej naszego projektu CanSat. To początek niesamowitej podróży w stratosferę.</p><h3>Co dalej?</h3><p>Nasz zespół ciężko pracuje nad fazą wstępnego projektowania i będziemy regularnie dzielić się aktualizacjami dotyczącymi naszych postępów. Bądźcie czujni!</p>"
     },
     {
       "title": "Project Kickoff",
+      "title_en": "Project Kickoff",
+      "title_pl": "Rozpoczęcie projektu",
       "date": "2024-01-10",
       "images": [
         {
           "src": "blog/images/kickoff1.jpg",
           "alt": "Team meeting",
-          "caption": "Initial team planning session"
+          "alt_en": "Team meeting",
+          "alt_pl": "Spotkanie zespołu",
+          "caption": "Initial team planning session",
+          "caption_en": "Initial team planning session",
+          "caption_pl": "Początkowa sesja planowania zespołu"
         },
         {
           "src": "blog/images/kickoff2.jpg",
           "alt": "Design sketch",
-          "caption": "Early design concepts"
+          "alt_en": "Design sketch",
+          "alt_pl": "Szkic projektu",
+          "caption": "Early design concepts",
+          "caption_en": "Early design concepts",
+          "caption_pl": "Wczesne koncepcje projektowe"
         }
       ],
-      "content": "<p>The StratoBusters team has officially started the CanSat project. We've completed our initial planning and are ready to begin development.</p><h3>Initial Goals</h3><ul><li>Design the satellite structure</li><li>Select and integrate sensors</li><li>Develop communication systems</li><li>Plan the launch mission</li></ul>"
+      "content": "<p>The StratoBusters team has officially started the CanSat project. We've completed our initial planning and are ready to begin development.</p><h3>Initial Goals</h3><ul><li>Design the satellite structure</li><li>Select and integrate sensors</li><li>Develop communication systems</li><li>Plan the launch mission</li></ul>",
+      "content_en": "<p>The StratoBusters team has officially started the CanSat project. We've completed our initial planning and are ready to begin development.</p><h3>Initial Goals</h3><ul><li>Design the satellite structure</li><li>Select and integrate sensors</li><li>Develop communication systems</li><li>Plan the launch mission</li></ul>",
+      "content_pl": "<p>Zespół StratoBusters oficjalnie rozpoczął projekt CanSat. Ukończyliśmy wstępne planowanie i jesteśmy gotowi rozpocząć rozwój.</p><h3>Początkowe cele</h3><ul><li>Zaprojektowanie struktury satelity</li><li>Wybór i integracja czujników</li><li>Rozwój systemów komunikacyjnych</li><li>Planowanie misji startowej</li></ul>"
     }
   ]
 }

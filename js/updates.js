@@ -68,6 +68,32 @@
         }
         return update.title || '';
     }
+    
+    function getImageCaption(img) {
+        if (typeof LanguageManager === 'undefined') return img.caption || '';
+        const lang = LanguageManager.currentLang;
+        
+        // Support bilingual captions: caption_en, caption_pl, or just caption
+        if (lang === 'pl' && img.caption_pl) {
+            return img.caption_pl;
+        } else if (lang === 'en' && img.caption_en) {
+            return img.caption_en;
+        }
+        return img.caption || '';
+    }
+    
+    function getImageAlt(img, fallback) {
+        if (typeof LanguageManager === 'undefined') return img.alt || fallback;
+        const lang = LanguageManager.currentLang;
+        
+        // Support bilingual alt text: alt_en, alt_pl, or just alt
+        if (lang === 'pl' && img.alt_pl) {
+            return img.alt_pl;
+        } else if (lang === 'en' && img.alt_en) {
+            return img.alt_en;
+        }
+        return img.alt || fallback;
+    }
 
     function renderUpdates(updates) {
         if (!updatesContainer) return;
@@ -92,12 +118,16 @@
                 // Support multiple images
                 imageHtml = `
                     <div class="update-images">
-                        ${update.images.map(img => `
+                        ${update.images.map(img => {
+                            const imgAlt = getImageAlt(img, title);
+                            const imgCaption = getImageCaption(img);
+                            return `
                             <div class="update-image">
-                                <img src="${img.src || img}" alt="${escapeHtml(img.alt || title)}" loading="lazy">
-                                ${img.caption ? `<p class="image-caption">${escapeHtml(img.caption)}</p>` : ''}
+                                <img src="${img.src || img}" alt="${escapeHtml(imgAlt)}" loading="lazy">
+                                ${imgCaption ? `<p class="image-caption">${escapeHtml(imgCaption)}</p>` : ''}
                             </div>
-                        `).join('')}
+                        `;
+                        }).join('')}
                     </div>
                 `;
             }
