@@ -119,7 +119,7 @@ const translations = {
         },
         team: {
             title: "Nasza drużyna",
-            subtitle: "Ludzie za StratoBusters",
+            subtitle: "Ludzie stojący za StratoBusters",
             noTeam: "Brak informacji o drużynie. Dodaj dane do pliku data/team.json",
             loading: "Ładowanie drużyny...",
             member: "Członek drużyny"
